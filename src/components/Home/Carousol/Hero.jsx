@@ -9,8 +9,7 @@ import fruit from "../../../assets/images/im-4.png";
 import drinks from "../../../assets/images/im-2.png";
 import vegetables from "../../../assets/images/im-0.png";
 import milky from "../../../assets/images/im-3.png";
-
-import Slide from "./slide";
+import Slide from "./Slide";
 
 const Hero = () => {
   const slides = [
