@@ -1,5 +1,4 @@
-import React from 'react';
-import Hero from '../components/Home/Carousol/hero';
+import Hero from '../components/Home/Carousol/Hero';
 import Badges from '../components/Home/Badges';
 import Category from '../components/Home/Categories/Category';
 import Product from '../components/Products/Product';
