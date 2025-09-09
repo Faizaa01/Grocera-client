@@ -5,9 +5,10 @@ import img2 from "../../../assets/images/img2.jpeg";
 import img3 from "../../../assets/images/img3.jpeg";
 import img4 from "../../../assets/images/img4.jpeg";
 import img5 from "../../../assets/images/img8.jpeg";
+import img6 from "../../../assets/images/img9.jpeg";
 
 const CategoryItem = ({ index, category }) => {
-  const bg = [img1, img2, img3, img4, img5];
+  const bg = [img1, img2, img3, img4, img5, img6];
   const navigate = useNavigate();
 
   const handleExplore = () => {

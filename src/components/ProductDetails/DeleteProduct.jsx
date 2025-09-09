@@ -1,10 +1,10 @@
-import apiClient from "../../services/api-client";
+import authApiClient from "../../services/auth-api-client";
 
 const DeleteProduct = ({ product, onDelete}) => {
   const handleDelete = async () => {
     if (!confirm("Are you sure you want to delete this product?")) return;
     try {
-      await apiClient.delete(`/products/${product.id}/`);
+      await authApiClient.delete(`/products/${product.id}/`);
       onDelete();
     } catch (err) {
       console.error(err);
