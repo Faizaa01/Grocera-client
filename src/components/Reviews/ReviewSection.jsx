@@ -73,50 +73,53 @@ const ReviewSection = () => {
     fetchReviews();
   }, []);
   return (
-    <div className="space-y-4 mt-10 max-w-5xl mx-auto px-4">
-      <div className="flex items-center justify-between">
-        <h2 className="text-2xl font-bold">Customer Reviews</h2>
-        <div className="badge badge-lg">
-          {reviews.length} {reviews.length === 1 ? "Review" : "Reviews"}
-        </div>
+   <div className="space-y-6 mt-10 max-w-5xl mx-auto px-4">
+    <div className="flex items-center justify-between">
+      <h2 className="text-3xl font-bold text-gray-900">
+        Customer Reviews
+      </h2>
+      <div className="badge badge-lg p-4 bg-indigo-100 text-indigo-800">
+        {reviews.length} {reviews.length === 1 ? "Review" : "Reviews"}
       </div>
-
-      {userCanReview && (
-        <div className="card bg-base-100 shadow-lg border border-base-200 rounded-xl overflow-hidden">
-          <div className="card-body">
-            <h3 className="card-title text-lg">Write a Review</h3>
-            <ReviewForm onSubmit={onSubmit} />
-          </div>
-        </div>
-      )}
-
-      <div className="divider"></div>
-
-      {isLoading ? (
-        <div className="flex justify-center py-8">
-          <span className="loading loading-spinner loading-lg text-primary"></span>
-        </div>
-      ) : reviews.length === 0 ? (
-        <div className="text-center py-8">
-          <div className="text-5xl mb-4">📝</div>
-          <h3 className="text-xl font-semibold mb-2">No Reviews Yet</h3>
-          <p className="text-base-content/70">
-            Be the first to review this product!
-          </p>
-        </div>
-      ) : (
-        <ReviewList
-          reviews={reviews}
-          user={user}
-          editReview={editReview}
-          setEditReview={setEditReview}
-          editingId={editingId}
-          setEditingId={setEditingId}
-          handleUpdateReview={handleUpdateReview}
-          handleDeleteReview={handleDeleteReview}
-        />
-      )}
     </div>
+
+    {userCanReview && (
+      <div className="bg-sky-50 rounded-2xl shadow-md p-6 border border-indigo-100">
+        <h3 className="text-xl font-semibold text-gray-900 mb-4">
+          Write a Review
+        </h3>
+        <ReviewForm onSubmit={onSubmit} />
+    </div>
+  )}
+
+  <div className="divider border-t-2 dark:border-gray-600"></div>
+
+  {isLoading ? (
+    <div className="flex justify-center py-8">
+      <span className="loading loading-spinner loading-lg text-indigo-500"></span>
+    </div>
+  ) : reviews.length === 0 ? (
+    <div className="text-center py-8 text-gray-500 dark:text-gray-300">
+      <div className="text-6xl mb-4">📝</div>
+      <h3 className="text-2xl font-semibold mb-2">No Reviews Yet</h3>
+      <p>Be the first to review this product!</p>
+    </div>
+  ) : (
+    <div className="space-y-4">
+      <ReviewList
+        reviews={reviews}
+        user={user}
+        editReview={editReview}
+        setEditReview={setEditReview}
+        editingId={editingId}
+        setEditingId={setEditingId}
+        handleUpdateReview={handleUpdateReview}
+        handleDeleteReview={handleDeleteReview}
+      />
+    </div>
+  )}
+</div>
+
   );
 };
 

@@ -26,7 +26,7 @@ const EditReviewForm = ({
           className="textarea textarea-bordered w-full min-h-[100px]"
         />
       </div>
-      <div className="flex gap-2">
+      <div className="flex gap-2 m-2">
         <button onClick={onSave} className="btn btn-sm btn-info text-white">
           Save Changes
         </button>

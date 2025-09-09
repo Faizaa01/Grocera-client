@@ -13,47 +13,41 @@ const ReviewForm = ({ onSubmit }) => {
   const ratingValue = watch("ratings", 0);
 
   return (
-    <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
-      <div className="flex gap-6">
-        <label className="label font-medium">
-          <span className="label-text">Rating </span>
+    <form
+      className="space-y-3 dark:bg-gray-600 p-4 rounded-xl shadow-sm"
+      onSubmit={handleSubmit(onSubmit)}
+    >
+      <div className="flex items-center gap-3">
+        <label className="font-medium text-gray-100">
+          Rating:
         </label>
         <StarRating
-          onChange={(value) => setValue("ratings", value)}
           rating={ratingValue}
+          onChange={(value) => setValue("ratings", value)}
         />
-        {errors.ratings && (
-          <p className="text-error text-sm mt-1">Rating is required</p>
-        )}
         <input type="hidden" {...register("ratings", { required: true })} />
       </div>
+      {errors.ratings && (
+        <p className="text-red-400 text-sm">Rating is required</p>
+      )}
 
-      <div className="form-control">
-        <div>
-          <textarea
-            {...register("comment", { required: true })}
-            className="textarea textarea-bordered min-h-[100px] focus:textarea-primary"
-            placeholder="Share your experience with this product..."
-          />
-        </div>
+      <div className="flex flex-col">
+        <textarea
+          {...register("comment", { required: true })}
+          className="textarea textarea-bordered min-h-[60px] max-h-[120px] w-full resize-none focus:ring-2 focus:ring-indigo-300 focus:border-indigo-400 rounded-lg text-sm"
+          placeholder="Share your experience..."
+        />
         {errors.comment && (
-          <p className="text-error text-sm">Comment is required</p>
+          <p className="text-red-400 text-sm mt-1">Comment is required</p>
         )}
       </div>
 
       <button
         type="submit"
-        className="btn btn-info text-white w-full md:w-auto"
         disabled={isSubmitting}
+        className="btn btn-sm btn-indigo w-full md:w-auto"
       >
-        {isSubmitting ? (
-          <>
-            <span className="loading loading-spinner loading-xs mr-2"></span>
-            Submitting...
-          </>
-        ) : (
-          "Submit Review"
-        )}
+        {isSubmitting ? "Submitting..." : "Submit Review"}
       </button>
     </form>
   );

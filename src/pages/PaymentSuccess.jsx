@@ -15,8 +15,8 @@ const PaymentSuccess = () => {
     <div className="text-center py-10">
       <h1 className="text-2xl font-bold mb-4">Payment Successful!</h1>
       <p>Your deposit has been completed.</p>
-      <Link to="/dashboard/deposit" className="text-blue-500 underline mt-4 inline-block">
-        Go to Deposit Page
+      <Link to="/dashboard/cart" className="text-blue-500 underline mt-4 inline-block">
+        Checkout Products
       </Link>
   </div>
   );

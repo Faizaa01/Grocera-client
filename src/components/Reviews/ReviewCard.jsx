@@ -14,7 +14,7 @@ const ReviewCard = ({
 }) => {
   console.log(review);
   return (
-    <div className="card bg-gray-100 shadow-md hover:shadow-lg transition-shadow border border-base-200 rounded-xl overflow-hidden">
+    <div className="card bg-slate-100 shadow-md hover:shadow-lg transition-shadow border border-gray-400 rounded-xl overflow-hidden">
       <div className="card-body">
         <div className="flex flex-col md:flex-row justify-between md:items-center gap-4">
           <div>

@@ -25,25 +25,22 @@ const Sidebar = () => {
     { to: "/dashboard/cart", icon: FiShoppingCart, label: "Cart" },
     { to: "/dashboard/orders", icon: FiArchive, label: "Orders" },
     { to: "/dashboard/deposit", icon: FiPrinter, label: "Deposit" },
-    { to: "/reviews", icon: FiStar, label: "Reviews" },
   ];
   
   const adminMenus = [
     { to: "/dashboard", icon: FiBarChart2, label: "Dashboard" },
-    { to: "/dashboard/cart", icon: FiShoppingCart, label: "Cart" },
-    { to: "/dashboard/orders", icon: FiArchive, label: "Orders" },
-    { to: "/dashboard/wishlist", icon: FiCheckCircle, label: "Wishlists" },
     { to: "/dashboard/products/add", icon: FiPlusCircle, label: "Add Product" },
     { to: "/shop", icon: FiPackage, label: "Products" },
     { to: "/dashboard/categories/add", icon: FiPlusCircle, label: "Add Category" },
     { to: "/categories", icon: FiTag, label: "Categories" },
+    { to: "/dashboard/orders", icon: FiArchive, label: "Orders" },
     { to: "/dashboard/users", icon: FiUsers, label: "Users" },
   ];
 
-  const menuItems = user.is_staff ? adminMenus : customerMenus;
+  const menuItems = user.is_staff || user.groups?.includes("seller") ? adminMenus : customerMenus;
 
   return (
-    <div className="drawer-side z-10 font-serif border border-black">
+    <div className="sticky top-0 drawer-side z-10 font-serif border border-black">
       <label
         htmlFor="drawer-toggle"
         aria-label="close sidebar"
