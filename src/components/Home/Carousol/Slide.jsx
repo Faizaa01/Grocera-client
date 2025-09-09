@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import bgImg from "../../../assets/images/bg.jpeg";
 
 const Slide = ({ title, subtitle, image, bgGradient }) => {
@@ -25,14 +26,14 @@ const Slide = ({ title, subtitle, image, bgGradient }) => {
             {subtitle}
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 items-center md:items-start">
+          <Link to="/shop" className="flex flex-col sm:flex-row gap-4 items-center md:items-start">
             <button className="w-full sm:w-auto bg-gradient-to-r from-amber-900 to-orange-200 text-white px-8 py-4 rounded-full font-semibold hover:from-orange-900 hover:to-orange-500 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center gap-2 justify-center">
               🛒 Shop Fresh Now
             </button>
             <button className="w-full sm:w-auto border-2 border-amber-900 text-amber-900 px-6 py-3 rounded-full font-medium hover:bg-amber-800 hover:text-white transition-all duration-300 text-center">
               View All Products
             </button>
-          </div>
+          </Link>
         </div>
 
         {/* Right Image */}
