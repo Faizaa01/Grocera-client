@@ -33,7 +33,7 @@ const OrderCard = ({ order, onCancel }) => {
         <p className="text-gray-600 text-sm">Placed on {order.created_at}</p>
       </div>
       <div className="flex gap-4">
-        {user.is_staff ? (
+        {user.is_staff || user.groups?.includes("seller") ? (
           <select
             value={status}
             onChange={handleStatusChange}

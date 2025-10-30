@@ -37,7 +37,11 @@ const Sidebar = () => {
     { to: "/dashboard/users", icon: FiUsers, label: "Users" },
   ];
 
-  const menuItems = user.is_staff || user.groups?.includes("seller") ? adminMenus : customerMenus;
+  const filteredAdminMenus = user.is_staff
+  ? adminMenus.filter(item => item.label !== "Add Product")
+  : adminMenus.filter(item => item.label !== "Add Category");
+
+  const menuItems = user.is_staff || user.groups?.includes("seller") ? filteredAdminMenus : customerMenus;
 
   return (
     <div className="sticky top-0 drawer-side z-10 font-serif border border-black">
@@ -68,9 +72,7 @@ const Sidebar = () => {
                 <Link
                   to={item.to}
                   className={`flex items-center gap-3 px-3 py-2 rounded transition-colors ${
-                    isActive
-                      ? "bg-red-300 text-white shadow-sm"
-                      : "hover:bg-blue-200"
+                    isActive ? "bg-red-300 text-white shadow-sm" : "hover:bg-blue-200"
                   }`}
                 >
                   <item.icon
